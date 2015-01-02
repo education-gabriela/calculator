@@ -1,16 +1,57 @@
 <?php
 require_once 'vendor/autoload.php';
 
-use Calculator\Node;
-use Calculator\Calculator;
+use Calculator\BinaryNode;
+use Calculator\ValueNode;
+use Calculator\IfNode;
 
+$node = new BinaryNode(
+    '+',
+    new ValueNode(1),
+    new BinaryNode(
+        '*',
+        new ValueNode(5),
+        new ValueNode(4)
+    )
+);
+var_dump($node->calculate());
 
-$node = new Node('+');
-$node->node_left = new Node(1);
-$node->node_right = new Node('*');
-$node->node_right->node_left = new Node(5);
-$node->node_right->node_right = new Node(4);
+$node = new BinaryNode(
+    '<',
+    new ValueNode(1),
+    new ValueNode(2)
+);
+var_dump($node->calculate());
 
-$result = Calculator::calculate($node);
-var_dump($result);
-var_dump(Calculator::calculate(new Node(5)));
+$node = new BinaryNode(
+    '+',
+    new ValueNode(7),
+    new BinaryNode(
+        '<',
+        new ValueNode(1),
+        new ValueNode(2)
+    )
+);
+var_dump($node->calculate());
+
+$node = new IfNode(
+    // if
+    new BinaryNode(
+        '<',
+        new ValueNode(1),
+        new ValueNode(2)
+    ),
+    // then
+    new BinaryNode(
+        '+',
+        new ValueNode(1),
+        new BinaryNode(
+            '*',
+            new ValueNode(5),
+            new ValueNode(4)
+        )
+    ),
+    // else
+    new ValueNode('invalid!!!')
+);
+var_dump($node->calculate());
