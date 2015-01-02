@@ -1,5 +1,6 @@
 {
     "name": "gabidavila/calculator",
+    "description": "A postfix calculator",
     "require-dev": {
         "phpunit/phpunit": "~4.4"
     },
