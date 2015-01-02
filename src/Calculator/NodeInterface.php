@@ -1,6 +1,7 @@
 <?php
 namespace Calculator;
 
-interface NodeInterface {
-    function calculate();
+interface NodeInterface
+{
+    public function calculate();
 }

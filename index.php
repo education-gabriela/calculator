@@ -35,7 +35,7 @@ $node = new BinaryNode(
 var_dump($node->calculate());
 
 $node = new IfNode(
-    // if
+// if
     new BinaryNode(
         '<',
         new ValueNode(1),

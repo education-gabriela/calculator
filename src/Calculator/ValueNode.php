@@ -1,16 +1,17 @@
 <?php
 namespace Calculator;
 
-use Calculator\NodeInterface;
-
-class ValueNode implements NodeInterface {
+class ValueNode implements NodeInterface
+{
     public $value;
-    
-    function __construct($value) {
+
+    public function __construct($value)
+    {
         $this->value = $value;
     }
-    
-    function calculate() {
+
+    public function calculate()
+    {
         return $this->value;
     }
 }
