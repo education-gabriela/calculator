@@ -1,13 +1,20 @@
 <?php
 namespace Calculator;
 
+/**
+ * Class BinaryNode
+ *
+ * It assumes that the left and right side are filled
+ *
+ * @package Calculator
+ * @author gabidavila
+ */
 class BinaryNode implements NodeInterface
 {
     public $this_left;
     public $this_right;
     public $operator;
 
-    //for now I will assume that one of those values are null, value or operator
     public function __construct($operator, NodeInterface $left, NodeInterface $right)
     {
         $this->operator = $operator;
