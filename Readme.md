@@ -2,7 +2,13 @@
 
 ## Calculator
 This is a challenge proposed by Igor Wiedler. I wanted to do a postfix calculator to calculate something like this:
-
+```
+   +
+  / \
+ 1   *
+    / \
+   4   5
+```
 
 ## How to Calculate
 
