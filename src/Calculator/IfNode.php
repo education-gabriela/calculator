@@ -14,7 +14,7 @@ class IfNode implements NodeInterface
     public $then;
     public $else;
 
-    public function __construct($if, NodeInterface $then, NodeInterface $else)
+    public function __construct(NodeInterface $if, NodeInterface $then, NodeInterface $else)
     {
         $this->if = $if;
         $this->then = $then;
@@ -23,6 +23,10 @@ class IfNode implements NodeInterface
 
     public function calculate()
     {
-        return ($this->if->calculate()) ? $this->then->calculate() : $this->else->calculate();
+        $value = $this->if->calculate();
+        if (!is_bool($value)) {
+            throw new \RuntimeException(sprintf('Expected a boolean from condition %s in IfNode, received %s', print_r($this->if, true), print_r($value, true)));
+        }
+        return $value ? $this->then->calculate() : $this->else->calculate();
     }
 }
